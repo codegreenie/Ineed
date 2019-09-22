@@ -1,0 +1,259 @@
+<div class="page" data-name="newdelivery">
+
+
+<div class="navbar">
+    <div class="navbar-inner bg-color-white">
+      <div class="left">
+        <a href="#" class="link back text-color-gray">
+          <i class="icon icon-back"></i>
+          <span class="if-not-md">Back</span>
+        </a>
+      </div>
+      <div class="title">New Delivery Order</div>
+      <div class="right">
+        
+      </div>
+    </div>
+</div>
+
+
+              <div class="page-content">
+
+
+
+                  
+<div class='list media-list no-hairlines-ios no-hairlines-md'>
+<ul>
+<li class='accordion-item'>
+
+  <a href='#' class='item-link item-content'>
+    <div class='item-inner'>
+      <div class='item-title-row'>
+        <div class='item-title'><i class="material-icons icon">card_giftcard</i>&nbsp;Pickup Details</div>
+        <div class='item-after text-color-black'></div>
+      </div>
+      
+      <div class='item-text'></div>
+    </div>
+  </a>
+                   
+<div class='block accordion-item-content'>
+
+  
+    <form class="list no-hairlines-md no-hairlines-ios">
+      <ul>
+        
+
+        <li class="item-content item-input">
+
+          <div class="item-inner">
+            <div class="item-title item-label">Item Description</div>
+            <div class="item-input-wrap">
+              <textarea placeholder="" id="item-description" required autofocus></textarea>
+              <span class="input-clear-button"></span>
+            </div>
+          </div>
+        </li>
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Pickup Address</div>
+            <div class="item-input-wrap">
+              <input id="pickup-address" type="text" placeholder=""  required>
+              
+            </div>
+          </div>
+        </li>
+
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Customer Name</div>
+            <div class="item-input-wrap">
+              <input id="buyer-name" type="text" placeholder="" disabled=""  required>
+              
+            </div>
+          </div>
+        </li>
+
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Customer E-mail</div>
+            <div class="item-input-wrap">
+              <input id="buyer-email" type="email" placeholder="" disabled=""  required>
+              
+            </div>
+          </div>
+        </li>
+
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Customer Phone Number</div>
+            <div class="item-input-wrap">
+              <input id="buyer-phone" type="tel" placeholder="" disabled=""  required>
+            </div>
+          </div>
+        </li>
+
+
+
+
+
+
+        
+        
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Total Package Size (Kg)</div>
+            <div class="item-input-wrap">
+              <input id="package-size" type="number" placeholder="" min="2" maxlength="100"  required>
+              <span class="input-clear-button"></span>
+            </div>
+          </div>
+        </li>
+
+
+        
+       
+        
+        
+       
+      
+        
+      </ul>
+
+      <br>
+
+     
+     
+
+    </form>
+
+  </div></li>
+
+
+
+
+  <li class='accordion-item'>
+
+  <a href='#' class='item-link item-content'>
+    <div class='item-inner'>
+      <div class='item-title-row'>
+        <div class='item-title'><i class="material-icons icon">card_giftcard</i>&nbsp;Delivery Details</div>
+        <div class='item-after text-color-black'></div>
+      </div>
+      
+      <div class='item-text'></div>
+    </div>
+  </a>
+                   
+<div class='block accordion-item-content'>
+
+  
+    <form class="list no-hairlines-md no-hairlines-ios">
+      <ul>
+        
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Delivery Address</div>
+            <div class="item-input-wrap">
+              <input id="delivery-address" type="text" placeholder=""  required>
+              
+            </div>
+          </div>
+        </li>
+
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Receiving Customer Name</div>
+            <div class="item-input-wrap">
+              <input id="receiving-customer-name" type="text" placeholder=""  required>
+              
+            </div>
+          </div>
+        </li>
+
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Receiving Customer E-mail</div>
+            <div class="item-input-wrap">
+              <input id="receiving-customer-email" type="email" placeholder="">
+              
+            </div>
+          </div>
+        </li>
+
+
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Receiving Customer Phone Number</div>
+            <div class="item-input-wrap">
+              <input id="receiving-customer-phone" type="tel" placeholder=""  required maxlength="11">
+            </div>
+          </div>
+        </li>
+   
+        
+        
+       
+      
+        
+      </ul>
+
+      <br>
+
+     
+     
+
+    </form>
+
+  </div></li>
+
+
+</ul>
+
+</div>
+
+
+
+   <div class="block">
+        <b>Processing Fee:</b>
+        <b id="processing-fee-span">
+          <img src='imgs/ripple.gif' style='max-width:50px; display:block; margin:0 auto;'>
+        </b>
+
+        <br>
+
+        <b>Delivery Fee:</b>
+        <b id="delivery-fee-span">
+          NGN 0
+        </b>
+      </div>
+
+
+    
+
+         
+ <button class="button button-fill color-blue bg-color-primary button-large button-round text-color-white button-raised" style="width: 85%; !important;  margin:0 auto;" type="button" id="new-delivery-btn">
+      
+        
+        Proceed
+
+     
+      </button>
+
+
+     
+      
+
+
+              </div>
+
+           </div>
+

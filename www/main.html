@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2196f3">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+  <title>Ineed</title>
+  <link rel="stylesheet" href="css/framework7.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/ineed.css">
+  <link rel="stylesheet" href="css/animate.css">
+  
+  
+    
+  
+</head>
+<body>
+  <div id="app">
+    <div class="statusbar"></div>
+
+
+    
+      <div class="view view-main view-init">
+
+           <div class="page" data-name="main">
+
+     <div style="position: absolute;top: 10%; z-index: 2500; width: 100%; text-shadow: #002c6b 2px 2px;" class="text-color-white animated slideInDown text-center">       
+  <h1>Ineed <br> Whatever you Need!</h1>
+  </div>
+
+            <img src='imgs/anim.gif' style="width: 100%; height: 100% !important; z-index: 500;">
+
+   
+
+           </div>
+
+
+           </div>
+
+
+
+
+</div>
+  <script src="cordova.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIylOKpFK29bTVRSBrndj_WfziBBMQItA&libraries=places" async></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" async></script>
+  <script src="https://js.paystack.co/v1/paystack.js" async></script>
+  <script src="js/framework7.min.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/app2.js"></script>
+<script type="text/javascript">
+
+ 
+if(window.localStorage.getItem("buyer_details")){
+  
+  setTimeout(function(){
+    mainView.router.navigate("/dashboard/");  
+  }, 5000);
+  
+}
+else{
+
+  setTimeout(function(){
+    mainView.router.navigate("/slides/");  
+  }, 5000);
+
+}
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

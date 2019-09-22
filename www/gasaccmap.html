@@ -1,0 +1,186 @@
+<div class="page" data-name="gasaccmap">
+       <div class="page-content">
+
+                <div id="the-map"></div>
+
+
+                <div class="bg-color-white elevation-2" style="width: 90%; left: 3%; height: auto; border-radius:20px;position: absolute; bottom:5px; padding: 5px 5px 10px 5px;" id="first-card">
+                	
+                	<div class="row">
+                      <div class="col">
+                        <a href="/dashboard/" class="text-color-primary">
+                          <i class="icon f7-icons">home</i>
+                          </a>
+                        </div>
+
+
+                        <div class="col" style="text-align: right;">
+                          <i class="icon material-icons text-color-primary" id="detect-current-location">location_searching</i>
+                        </div>
+                  </div>
+                  
+
+
+                	<div class="list">
+				      <ul>
+				        <li>
+				          <a href="/manualaddressacc/" class="item-link item-content">
+				            <div class="item-media">
+				            	<i class="icon f7-icons text-color-primary">placemark</i>
+				            </div>
+				            <div class="item-inner">
+				              <div class="item-title">
+				                <div class="item-header">Set your delivery address</div>
+				                <span id="place-my-delivery-address">&nbsp;</span>
+				              </div>
+				              <div class="item-after">&nbsp;</div>
+				            </div>
+				          </a>
+				        </li>
+				      </ul>
+				  </div>
+
+
+
+
+				  <button class="button button-fill color-blue bg-color-primary button-large button-round text-color-white button-raised" type="button" id="set-acc-delivery-address-btn">
+       					Continue&nbsp;<i class="icon f7-icons">arrow_right</i>
+			      </button>
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="bg-color-white elevation-2" style="width: 90%; left: 3%; border-radius:20px;position: absolute;bottom:3%; padding: 5px 5px 10px 5px;" id="second-card">
+
+                <div style="padding-bottom: 2px;">
+                	<h3 class="text-color-primary">
+                		<i class="icon f7-icons" id="back-2-set-addr">arrow_left</i>&nbsp;Order Gas Accessories
+                	</h3>
+                </div>
+
+                
+
+
+                <div class="row" style="margin-top:0px;">
+
+                	<div class="col">
+                		<span style="font-size: 18px;" id="acc-store-name-span">&nbsp;</span><br>
+                		<small>Location</small>
+	                    <br>
+	                    <span class="text-color-deeporange" id="acc-distance-span"><img src='imgs/ripple.gif' style='max-width:30px;'></span>
+	                	<br>
+                		<span>
+                			<i class="f7-icons icon">star</i>
+                			<span id="acc-store-rating">&nbsp;</span> / 5.0
+                		</span>
+
+                	</div>
+
+                	<div class="col text-center">
+                		<br>
+                		<small>Est Delivery Time</small>
+                		<br>
+                		<span class="text-color-deeporange" id="acc-edt-span"><img src='imgs/ripple.gif' style='max-width:30px;'></span>
+                	</div>
+
+                </div>
+
+                
+                	<br>
+
+				      	
+				      	
+
+				  	
+
+
+
+				  	<div class="row" style="padding-bottom: 10px;">
+
+			  		<div class="col-50">
+			      	    	<div style="margin-top:5px; font-size: 17px;">Item: <span id="acc-name-span"></span></div>
+				      </div>
+
+				      <div class="col-50">
+				      	<img src="" style="max-width: 35px; display: block; margin: 0 auto;" id="acc-image">
+				      </div>
+
+
+
+
+				    </div>
+
+
+
+
+
+				    <div class="row" style="padding-bottom: 10px; margin-top: 10px;">
+
+
+				      <div class="col-50">
+				           	<div style="margin-top:5px; font-size: 17px;">Quantity:</div>
+				      </div>
+
+
+
+				      <div class="col-50 text-center">
+				      	<div class="stepper stepper-raised stepper-init stepper-round">
+			              <div class="stepper-button-minus text-color-black" onclick="updateAccQty()"></div>
+			              <div class="stepper-input-wrap text-color-black">
+			                <input type="text" min="1" max="10" step="1" readonly="" value="1" id="acc-qty">
+			              </div>
+			              <div class="stepper-button-plus text-color-black" onclick="updateAccQty()"></div>
+			            </div>
+				      </div>
+
+				  	</div>
+
+
+				  	<hr style="border:solid 0.5px #ededed;">
+				  	
+
+
+
+
+				  	<div class="row">
+
+				      <div class="col" id="price-tag-container" style="height: 100%; margin-top: 10px;">
+				      	<span class="text-color-black" style="font-size: 22px;" id="acc-order-total-price"></span>
+				      </div>
+
+
+
+				   
+				      <div class="col">
+			      		<button class="button button-large button-fill button-round button-raised bg-color-primary" style="float: right;" id="place-acc-order-btn">
+			      			Place Order&nbsp;<i class="icon f7-icons">arrow_right</i></button>
+			      	  </div>
+				      
+
+				  	</div>
+
+
+
+
+				
+
+
+
+                </div>
+
+
+
+
+
+
+              </div>
+
+           </div>
+

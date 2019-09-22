@@ -1,0 +1,141 @@
+<div class="page" data-name="addmoney">
+
+<div class="navbar">
+    <div class="navbar-inner sliding bg-color-white">
+      <div class="left">
+        <a href="#" class="link back text-color-gray">
+          <i class="icon icon-back"></i>
+          <span class="if-not-md">Back</span>
+        </a>
+      </div>
+      <div class="title">Add Money to Wallet</div>
+      <div class="right">
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+	<div class="page-content" style="padding-bottom: 30px;">
+
+
+    <div class="popup payment-popup">
+      <div class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="title">Payment Successful</div>
+            <div class="right"></div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="block text-center">
+            
+                
+                  <h1 class="text-color-gray">You have successfully added NGN<span id="amount-payed"></span> to your Wallet
+                  </h1>
+
+                  <img src="imgs/check.png" style="display: block; margin: 0 auto; max-width: 160px;">
+
+                  
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <form id="add-money-form" onsubmit="return false">
+      
+    <div class="block">
+      <h2>Select Card</h2>
+    </div>
+
+        <div class="swiper-container" style="height: auto; padding-top:0px;">
+      
+      <div class="swiper-wrapper" id="list-cards-container"></div>
+
+
+    </div><!-- End of Slides Container -->
+
+
+
+
+    <div class="list no-hairlines-md no-hairlines-ios">
+      <ul>
+
+        <li class="item-content item-input item-input-with-info">
+          <div class="item-inner">
+            <div class="item-input-wrap">
+              <input type="tel" placeholder="CVV" required validate maxlength="3" data-paystack="cvv" id="card-cvv" value="">
+              <span class="input-clear-button"></span>
+              <div class="item-input-info">3 Digits at the back of your card</div>
+            </div>
+          </div>
+        </li>
+
+
+      </ul>
+    </div>
+
+
+    <input type="hidden" id="card-number" value="" data-paystack="number">
+    <input type="hidden" id="expiry-month" value="" data-paystack="expiryMonth">
+    <input type="hidden" id="expiry-year" value="" data-paystack="expiryYear">
+
+
+
+    <div class="block">
+      <h3>Amount to Add</h3>
+    </div>
+
+
+    <div class="block">
+      <div class="row">
+        <button type="button" class="price-btn col button button-outline color-yellow button-large" id="order-500" onclick="choosePrice('500', 'order-500')">NGN 500</button>
+        <button type="button" class="price-btn col button button-outline color-pink button-large" id="order-1000" onclick="choosePrice('1000', 'order-1000')">NGN 1,000</button>
+        
+      </div>
+    </div>
+
+
+    <div class="block">
+      <div class="row">
+        <button type="button" class="price-btn col button button-outline color-green button-large" id="order-2000" onclick="choosePrice('2000', 'order-2000')">NGN 2,000</button>
+
+         <button type="button" class="price-btn col button button-outline color-blue button-large" id="order-5000" onclick="choosePrice('5000', 'order-5000')">NGN 5,000</button>
+      </div>
+    </div>
+
+
+
+
+    <div class="block">
+      <div class="row">
+       
+        <button type="button" class="price-btn col button button-outline color-purple button-large" id="order-7500" onclick="choosePrice('7500', 'order-7500')">NGN 7,500</button>
+                
+      </div>
+    </div>
+
+
+      <p>&nbsp;</p>
+
+
+   
+        <div class="block">
+        <button class="col button button-fill button-large text-color-white button-raised bg-color-primary" id="push-payment-btn" type="button"></button>
+      </div>  
+        
+ 
+
+      <button type="submit" data-paystack="submit" style="display: none;">Submit Add Money Form</button>
+
+    
+        </form>
+              </div>
+
+           </div>
+
