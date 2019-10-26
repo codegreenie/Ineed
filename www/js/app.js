@@ -155,7 +155,7 @@ document.addEventListener("deviceready", deviceIsReady, false);
 
 
 function deviceIsReady(){
-
+StatusBar.styleLightContent();
 StatusBar.backgroundColorByHexString("#ededed");
 
 
