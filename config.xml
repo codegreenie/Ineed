@@ -8,6 +8,7 @@
         @codegreenie
     </author>
     <content src="index.html" />
+    <icon src="icon.png" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBTeut5GHM0G24X0QuuiLjtVfsFo2Af0uk" />
