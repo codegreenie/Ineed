@@ -402,6 +402,11 @@ $$(document).on('page:init', '.page[data-name="paypagegas"]', function (e){
   });
 
 
+  var codpopup = app.popup.create({
+    el : ".cod-popup"
+  });
+
+
 
   var baseFee = 0;
   var perKMFee = 0;
@@ -453,7 +458,7 @@ $$(document).on('page:init', '.page[data-name="paypagegas"]', function (e){
     $$("#expiry-year").val(splitCardExp[1]);
 
 
-    $$('#checkbox-wallet').prop("checked", false);
+    $$('#checkbox-wallet, #checkbox-cod').prop("checked", false);
 
     window.localStorage.setItem("selected_payment_method", "card");
 
@@ -485,22 +490,38 @@ $$(document).on('page:init', '.page[data-name="paypagegas"]', function (e){
   
 
       var checkboxWallet = $$('#checkbox-wallet');
+      var checkboxCOD = $$('#checkbox-cod');
+
+      //set wallet as default payment method
       checkboxWallet.prop("checked", true);
-      //set wallet to payment method once payment page loads
       window.localStorage.setItem("selected_payment_method", "wallet");
 
       
       checkboxWallet.click(function(){
         $$(".atm-card").css("border", "none");
+        checkboxCOD.prop("checked", false);
         window.localStorage.setItem("selected_payment_method", "wallet");
       });
 
-      $$("#wallet-card").click(function(){
+      checkboxCOD.click(function(){
+        $$(".atm-card").css("border", "none");
+        checkboxWallet.prop("checked", false);
+        window.localStorage.setItem("selected_payment_method", "cod");
+      });
 
+      $$("#wallet-card").click(function(){
           checkboxWallet.prop("checked", true);
           $$(".atm-card").css("border", "none");
+          checkboxCOD.prop("checked", false);
           window.localStorage.setItem("selected_payment_method", "wallet");
 
+      });
+
+      $$("#cod-card").click(function(){
+          checkboxWallet.prop("checked", false);
+          checkboxCOD.prop("checked", true);
+          $$(".atm-card").css("border", "none");
+          window.localStorage.setItem("selected_payment_method", "cod");
       });
 
 
@@ -621,7 +642,6 @@ $$(document).on('page:init', '.page[data-name="paypagegas"]', function (e){
 
                   app.dialog.alert("Insufficient Balance!");
                   console.log("no money to buy");
-                  mainView.router.navigate("/addmoney/");
 
                 }
               
@@ -661,7 +681,7 @@ $$(document).on('page:init', '.page[data-name="paypagegas"]', function (e){
                     setTimeout(function(){
                       paypopup.close();
                       mainView.router.navigate("/dashboard/");
-                    }, 3000);
+                    }, 4000);
                 }
                 else{
 
@@ -682,10 +702,66 @@ $$(document).on('page:init', '.page[data-name="paypagegas"]', function (e){
 
             }
 
+            else if(window.localStorage.getItem("selected_payment_method") == "cod"){
+
+
+              // Now process payment via debit card
+                 app.request.post('https://nairasurvey.com/hub/init_gas_transaction.php', 
+                    {
+
+                     "user_id" : JSON.parse(window.localStorage.getItem("buyer_details")).buyer_serial,
+                     "processing_fee" : totalFees,
+                     "price" : JSON.parse(window.localStorage.getItem("full_gas_order")).item_price,
+                     "total_price" : JSON.parse(window.localStorage.getItem("full_gas_order")).total_price,
+                     "cylinder_size" : window.localStorage.getItem("selected_cylinder_size"),
+                     "item_qty" : JSON.parse(window.localStorage.getItem("full_gas_order")).item_qty,
+                     "buyer" : JSON.parse(window.localStorage.getItem("buyer_details")).buyer_serial,
+                     "seller" : JSON.parse(window.localStorage.getItem("full_gas_order")).seller,
+                     "payment_method" : window.localStorage.getItem("selected_payment_method"),
+                     "delivery_address" : JSON.parse(window.localStorage.getItem("full_gas_order")).delivery_address,
+
+
+                   },
+               function (data) {
+
+              console.log(data);
+
+               data = data.split(" ");
+
+                if (data[1] == "Successful") {
+
+                  var allAmountPaid = parseInt(orderAmount) + parseInt(totalFees);
+                  $$("#cod-amount-payed").text(allAmountPaid);
+
+                  codpopup.open();
+                    //Move to dashboard
+                    setTimeout(function(){
+                      codpopup.close();
+                      mainView.router.navigate("/dashboard/");
+                    }, 4000);
+                }
+                else{
+
+                  toastMe("Unable to create transaction now. Try again later");
+                  $$("#pay-btn").html("<i class='icon f7-icons'>lock</i>&nbsp;Pay NGN " + allAmountPaid).prop("disabled", false);
+
+                }
+
+         }, 
+         function (data) {
+
+            toastMe("Unknown Network error. Try again later");
+            $$("#pay-btn").html("<i class='icon f7-icons'>lock</i>&nbsp;Pay NGN " + allAmountPaid).prop("disabled", false);
+
+         });
+
+
+                
+
+            }
+
             else{
 
-
-               
                 //lets pay via card
 
 
@@ -1189,6 +1265,9 @@ $$(document).on('page:init', '.page[data-name="paygasotp"]', function (e){
 
 
 $$(document).on('page:init', '.page[data-name="newdelivery"]', function (e){
+
+
+  app.accordion.open('.pickup-details');
 
   var input = document.getElementById('pickup-address');
   var input2 = document.getElementById('delivery-address');
